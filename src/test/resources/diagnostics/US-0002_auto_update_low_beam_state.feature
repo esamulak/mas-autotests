@@ -1,16 +1,29 @@
-@US-0001
+@US-0002
 Feature: AS a Diagnostic Engineer I WANT the low-beam light state to be updated automatically when it changes in the vehicle SO THAT I always see the current state without refreshing manually.
 
   @UC1
-  Scenario: The low-beam lights are turned on and the ON state is reported
-    Given the connection to the vehicle is established
-      And the low-beam light state is OFF
-    When the low-beam lights are switched to ON
-    Then the low-beam light state is automatically updated to ON
+  Scenario Outline: The displayed low-beam light state is automatically updated
+    Given the low-beam light state is <initial>
+    When the low-beam lights are switched to <target>
+    Then the displayed low-beam light state is automatically updated to <target>
+
+    Examples:
+      | initial | target |
+      | OFF     | ON     |
+      | ON      | OFF    |
 
   @UC2
-  Scenario: The low-beam lights are turned off and the OFF state is reported
-    Given the connection to the vehicle is established
-      And the low-beam light state is ON
-    When the low-beam lights are switched to OFF
-    Then the low-beam light state is automatically updated to OFF
+  Scenario Outline: The displayed low-beam light state is not updated when an error occurs
+    Given the low-beam light state is <initial>
+      And the update fails with the error "<error>"
+    When the low-beam lights are switched to <target>
+    Then the displayed low-beam light state is not updated
+
+    Examples:
+      | initial | target | error                                   |
+      | OFF     | ON     | Cannot connect to the diagnostic screen |
+      | OFF     | ON     | Internal server error                   |
+      | OFF     | ON     | Diagnostic screen not responding        |
+      | ON      | OFF    | Cannot connect to the diagnostic screen |
+      | ON      | OFF    | Internal server error                   |
+      | ON      | OFF    | Diagnostic screen not responding        |
