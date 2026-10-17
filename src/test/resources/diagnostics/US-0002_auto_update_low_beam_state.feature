@@ -24,6 +24,8 @@ Feature: AS a Diagnostic Engineer I WANT the low-beam light state to be updated 
       | OFF     | ON     | Cannot connect to the diagnostic screen |
       | OFF     | ON     | Internal server error                   |
       | OFF     | ON     | Diagnostic screen not responding        |
+      | OFF     | ON     | Invalid data error                      |
       | ON      | OFF    | Cannot connect to the diagnostic screen |
       | ON      | OFF    | Internal server error                   |
       | ON      | OFF    | Diagnostic screen not responding        |
+      | ON      | OFF    | Invalid data error                      |

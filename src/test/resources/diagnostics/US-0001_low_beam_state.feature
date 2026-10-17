@@ -23,7 +23,7 @@ Feature: AS a Diagnostic Engineer I WANT to see the current low-beam light state
       | is not connected                        | Cannot connect to the vehicle |
       | reports an internal error               | Vehicle software error        |
       | does not respond within 5 seconds       | Vehicle not responding        |
-      | reports an unknown low-beam light state | Vehicle software error        |
+      | reports an invalid low-beam light state | Vehicle software error        |
 
   @UC3
   Scenario Outline: Low-beam light state cannot be displayed when an internal server error occurs
