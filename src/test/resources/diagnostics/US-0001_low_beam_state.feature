@@ -2,31 +2,36 @@
 Feature: AS a Diagnostic Engineer I WANT to see the current low-beam light state SO THAT I can monitor the vehicle lights
 
   @UC1
-  Scenario: The low-beam light state is displayed as ON when the vehicle’s low-beam lights are on
-    Given the vehicle's low-beam lights are on
+  Scenario Outline: The low-beam light state is displayed as <state>
+    Given the vehicle's low-beam lights are <state>
     When the low-beam light state is requested
-    Then the low-beam light state is returned as ON
+    Then the low-beam light state is returned as <state>
+
+    Examples:
+      | state |
+      | ON    |
+      | OFF   |
 
   @UC2
-  Scenario: The low-beam light state is displayed as OFF when the vehicle’s low-beam lights are off
-    Given the vehicle's low-beam lights are off
+  Scenario Outline: Low-beam light state cannot be displayed when the vehicle <condition>
+    Given the vehicle <condition>
     When the low-beam light state is requested
-    Then the low-beam light state is returned as OFF
+    Then the error "<error>" is returned
+
+    Examples:
+      | condition                         | error                         |
+      | is not connected                  | Cannot connect to the vehicle |
+      | reports an internal error         | Vehicle software error        |
+      | does not respond within 5 seconds | Vehicle not responding        |
 
   @UC3
-  Scenario: Low-beam light state cannot be displayed when the vehicle is not connected
-    Given the vehicle is not connected
+  Scenario Outline: Low-beam light state cannot be displayed when an internal server error occurs
+    Given the vehicle responds with the low-beam light state <state>
+      And an internal server error occurs
     When the low-beam light state is requested
-    Then the error "Cannot connect to the vehicle" is returned
+    Then the error "Internal server error" is returned
 
-  @UC4
-  Scenario: Low-beam light state cannot be displayed when an internal vehicle error occurs
-    Given an internal vehicle error occurs
-    When the low-beam light state is requested
-    Then the error "Internal vehicle error" is returned
-
-  @UC5
-  Scenario: Low-beam light state cannot be displayed when the vehicle does not respond in time
-    Given the vehicle does not respond within 5 seconds
-    When the low-beam light state is requested
-    Then the error "Vehicle not responding" is returned
+    Examples:
+      | state |
+      | ON    |
+      | OFF   |
