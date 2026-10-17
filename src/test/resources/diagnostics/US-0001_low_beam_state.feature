@@ -26,7 +26,7 @@ Feature: AS a Diagnostic Engineer I WANT to see the current low-beam light state
 
   @UC3
   Scenario Outline: Low-beam light state cannot be displayed when an internal server error occurs
-    Given the vehicle responds with the low-beam light state <state>
+    Given the vehicle's low-beam lights are <state>
       And an internal server error occurs
     When the low-beam light state is requested
     Then the error "Internal server error" is returned

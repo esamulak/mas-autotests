@@ -3,7 +3,7 @@ Feature: AS a Diagnostic Engineer I WANT the low-beam light state to be updated 
 
   @UC1
   Scenario Outline: The displayed low-beam light state is automatically updated
-    Given the low-beam light state is <initial>
+    Given the vehicle's low-beam lights are <initial>
     When the low-beam lights are switched to <target>
     Then the displayed low-beam light state is automatically updated to <target>
 
@@ -14,7 +14,7 @@ Feature: AS a Diagnostic Engineer I WANT the low-beam light state to be updated 
 
   @UC2
   Scenario Outline: The displayed low-beam light state is not updated when an error occurs
-    Given the low-beam light state is <initial>
+    Given the vehicle's low-beam lights are <initial>
       And the update fails with the error "<error>"
     When the low-beam lights are switched to <target>
     Then the displayed low-beam light state is not updated
