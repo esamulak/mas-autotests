@@ -22,7 +22,7 @@ Feature: AS a Diagnostic Engineer I WANT to see the current low-beam light state
       | condition                               | error                         |
       | is not connected                        | Cannot connect to the vehicle |
       | reports an internal error               | Vehicle software error        |
-      | does not respond within 5 seconds       | Vehicle not responding        |
+      | does not respond within 5 seconds       | Cannot connect to the vehicle |
       | reports an invalid low-beam light state | Vehicle software error        |
 
   @UC3
