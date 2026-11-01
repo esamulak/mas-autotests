@@ -1,0 +1,4 @@
+endpoints:
+  response-timeout: 5s
+  response-error:
+    error-code-pattern: '^MASERR-(?!0000)\d{4}[BT]$'
