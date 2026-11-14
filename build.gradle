@@ -18,9 +18,28 @@ repositories {
 
 dependencies {
     testImplementation 'pl.es8it.mas.contract:mas-core-api:1.0.0'
+    testImplementation 'pl.es8it.mas.contract:mas-diagnostics-api:1.0.0'
+    testImplementation 'pl.es8it.mas.contract:mas-vehicle-api:1.0.0'
+    testImplementation 'pl.es8it.mas.core:mas-core:1.0.0'
 
-    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation platform('io.cucumber:cucumber-bom:7.30.0')
+    testImplementation 'io.cucumber:cucumber-java'
+    testImplementation 'io.cucumber:cucumber-picocontainer'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine'
+
+    testImplementation 'org.wiremock:wiremock-standalone:3.13.1'
+    testImplementation 'io.rest-assured:rest-assured:6.3.0'
+    testImplementation 'org.awaitility:awaitility:4.3.0'
+
+    testImplementation platform('com.fasterxml.jackson:jackson-bom:2.21.5')
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind'
+    testImplementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+
+    testImplementation 'org.assertj:assertj-core:3.27.7'
+
+    testImplementation platform('org.junit:junit-bom:6.0.3')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.platform:junit-platform-suite'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
