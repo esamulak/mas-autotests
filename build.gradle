@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'org.example'
+group = 'pl.es8it.mas.autotests'
 version = '1.0-SNAPSHOT'
 
 java {
