@@ -20,7 +20,6 @@ dependencies {
     testImplementation 'pl.es8it.mas.contract:mas-core-api:1.0.0'
     testImplementation 'pl.es8it.mas.contract:mas-diagnostics-api:1.0.0'
     testImplementation 'pl.es8it.mas.contract:mas-vehicle-api:1.0.0'
-    testImplementation 'pl.es8it.mas.core:mas-core:1.0.0'
 
     testImplementation platform('io.cucumber:cucumber-bom:7.30.0')
     testImplementation 'io.cucumber:cucumber-java'
@@ -33,7 +32,6 @@ dependencies {
 
     testImplementation platform('com.fasterxml.jackson:jackson-bom:2.21.5')
     testImplementation 'com.fasterxml.jackson.core:jackson-databind'
-    testImplementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
 
     testImplementation 'org.assertj:assertj-core:3.27.7'
 

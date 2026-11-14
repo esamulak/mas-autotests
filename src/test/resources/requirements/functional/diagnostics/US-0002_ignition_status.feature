@@ -3,10 +3,9 @@ Feature: AS a Diagnostic Engineer I WANT to see a vehicle's ignition status remo
 
   @UC1
   Scenario Outline: The ignition status is displayed as <status>
-    Given the vehicle reports the ignition:
-      | status | <status> |
+    Given the vehicle reports the ignition <status>
     When the ignition status is requested
-    Then the ignition details are returned:
+    Then the ignition details are returned
       | status | <status> |
 
     Examples:
@@ -18,7 +17,7 @@ Feature: AS a Diagnostic Engineer I WANT to see a vehicle's ignition status remo
   Scenario Outline: Ignition status cannot be displayed when the vehicle <issue>
     Given the vehicle <issue>
     When the ignition status is requested
-    Then the error details are returned:
+    Then the error details are returned
       | errorMessage | <error message> |
 
     Examples:
@@ -30,10 +29,10 @@ Feature: AS a Diagnostic Engineer I WANT to see a vehicle's ignition status remo
 
   @UC3
   Scenario Outline: Ignition status cannot be displayed when the application throws an unexpected error
-    Given the vehicle's ignition is <status>
+    Given the vehicle reports the ignition <status>
       And the application throws an unexpected error
     When the ignition status is requested
-    Then the error details are returned:
+    Then the error details are returned
       | errorMessage | Unexpected application error |
 
     Examples:
