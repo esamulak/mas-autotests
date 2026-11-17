@@ -1,7 +1,5 @@
 # MAS - Requirements
 
-Oct 31, 2026 · @Eryk
-
 # Introduction
 
 Modular Automotive System (MAS) is a remote vehicle diagnostics service that informs drivers, fleets and workshops about vehicle faults as soon as they occur. Each fault is translated into a clear description, rated by urgency and kept in the vehicle's service history, so problems are fixed before they become breakdowns. This shortens vehicle downtime, lowers repair costs and gives the manufacturer insight into recurring faults across vehicle models.
@@ -38,9 +36,9 @@ Modular Automotive System (MAS) is a remote vehicle diagnostics service that inf
 
 AS A Diagnostic Engineer,
 
-I WANT to see a vehicle's active faults remotely,
+I WANT the ignition status to update automatically,
 
-SO THAT I can diagnose it before it reaches a workshop.
+SO THAT I always see its current state.
 
 ##### US-0002
 
